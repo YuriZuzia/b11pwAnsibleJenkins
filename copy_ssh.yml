@@ -1,0 +1,37 @@
+---
+# Copy ssh public keys to the host (hosts)
+- name:   Copy public key
+  hosts:
+    - prod
+    - stage
+  gather_facts: no
+  become:       True
+  vars:
+    ssh_key:    ./jenkins_keys/id_rsa.pub
+    home_path:  /var/lib/jenkins/
+    destination: /var/lib/jenkins/.ssh/authorized_keys
+
+  tasks:
+    - name: Describe user for pipeline jobs
+      ansible.builtin.user:
+        name: jenkins
+        home: "{{ home_path }}"
+        append: true
+        groups: docker
+
+    - name: display params
+      ansible.builtin.debug:
+        msg: "{{ home_path }}.ssh"
+
+    - name: create dest folder
+      ansible.builtin.file:
+        path: "{{ home_path }}.ssh"
+        state: directory
+        owner: jenkins
+        mode: '0744'
+
+    - name:     Copy public keys
+      ansible.builtin.copy:
+        src: "{{ ssh_key }}"
+        dest: "{{ destination }}"
+        

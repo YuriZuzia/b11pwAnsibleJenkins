@@ -1,0 +1,6 @@
+[jenkins_ci_servers]
+jenkins_ci ansible_host=158.160.28.20
+[production_servers]
+prod ansible_host=158.160.29.245
+[staging_servers]
+stage ansible_host=158.160.9.82
