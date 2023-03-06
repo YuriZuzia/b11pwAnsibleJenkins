@@ -3,6 +3,7 @@ port=9889
 docker run --rm -dv ./files:/usr/share/nginx/html -p $port:80 nginx
 curl -i http://$server:$port | grep 200
 curl -o downloaded.html http://$server:$port
-if [[ $(md5sum ./files/index.html ./downloaded.html | awk '{print $1}' | uniq | wc -l) == 1 ]]; then
-docker ps | grep docker | awk '{print $1}' | xargs docker stop
+if [[ $(md5sum ./files/index.html ./downloaded.html | awk '{print $1}' | uniq | wc -l) == 1 ]]
+then
+   docker ps | grep docker | awk '{print $1}' | xargs docker stop
 fi
