@@ -1,0 +1,44 @@
+Started by user Громов Прохор Петрович
+Running as SYSTEM
+Building on the built-in node in workspace /var/lib/jenkins/workspace/project_work_11
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/project_work_11/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/YuriZuzia/b11pwAnsibleJenkins.git # timeout=10
+Fetching upstream changes from https://github.com/YuriZuzia/b11pwAnsibleJenkins.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.34.1'
+ > git fetch --tags --force --progress -- https://github.com/YuriZuzia/b11pwAnsibleJenkins.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision eb922473426983b4008389728a1ce47108b56132 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f eb922473426983b4008389728a1ce47108b56132 # timeout=10
+Commit message: "index_mod"
+ > git rev-list --no-walk eb922473426983b4008389728a1ce47108b56132 # timeout=10
+[project_work_11] $ /bin/sh -xe /tmp/jenkins9034191959932810104.sh
++ server=127.0.0.1
++ port=9889
++ docker run --rm -dv ./files:/usr/share/nginx/html -p 9889:80 nginx
+e9c30ba7c4b8275f21d39a711c4e74d46c2943fd716de65d0fa6a02f6ce4316c
++ + curl -i http://127.0.0.1:9889
+grep 200
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   330  100   330    0     0   301k      0 --:--:-- --:--:-- --:--:--  322k
+HTTP/1.1 200 OK
++ curl -o downloaded.html http://127.0.0.1:9889
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   330  100   330    0     0   454k      0 --:--:-- --:--:-- --:--:--  322k
++ md5sum ./files/index.html ./downloaded.html
++ uniq
++ + awk {print $1}
+wc -l
++ [[ 1 == 1 ]]
+/tmp/jenkins9034191959932810104.sh: 7: [[: not found
+Finished: SUCCESS

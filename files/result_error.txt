@@ -1,0 +1,33 @@
+Started by GitHub push by YuriZuzia
+Running as SYSTEM
+Building on the built-in node in workspace /var/lib/jenkins/workspace/project_work_11
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/project_work_11/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/YuriZuzia/b11pwAnsibleJenkins.git # timeout=10
+Fetching upstream changes from https://github.com/YuriZuzia/b11pwAnsibleJenkins.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.34.1'
+ > git fetch --tags --force --progress -- https://github.com/YuriZuzia/b11pwAnsibleJenkins.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 359e5f3ad281b74b850811e50ed4cbc3591a66b9 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 359e5f3ad281b74b850811e50ed4cbc3591a66b9 # timeout=10
+Commit message: "index_mod2"
+ > git rev-list --no-walk 93c964dc0e12e47911967f13f08a72a7556d1e62 # timeout=10
+[project_work_11] $ /bin/sh -xe /tmp/jenkins4723782142463067172.sh
++ server=127.0.0.1
++ port=9889
++ docker run --rm -dv ./files:/usr/share/nginx/html -p 9889:80 nginx
+e2676f5ef390700cb831698b971b694f48b565d9c61f9417e253f6c3ba5382c4
++ + curlgrep 200
+ -i http://127.0.0.1:9889
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (52) Empty reply from server
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE
